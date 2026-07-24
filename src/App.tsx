@@ -13,8 +13,9 @@ import { MonetizationView } from "./components/MonetizationView";
 import { SettingsView } from "./components/SettingsView";
 import { AuthModal } from "./components/AuthModal";
 import { AndroidDeviceFrame } from "./components/AndroidDeviceFrame";
+import { AIAssistantWidget } from "./components/AIAssistantWidget";
 import { ActiveTab, UserProfile, SavedProject } from "./types";
-import { X, Copy, Check, Sparkles } from "lucide-react";
+import { X, Copy, Check, Sparkles, Download } from "lucide-react";
 
 const INITIAL_PROJECTS: SavedProject[] = [
   {
@@ -260,7 +261,22 @@ export default function App() {
               {selectedProjectModal.result}
             </div>
 
-            <div className="flex justify-end gap-2 pt-2">
+            <div className="flex flex-wrap justify-end gap-2 pt-2">
+              <button
+                onClick={() => {
+                  const blob = new Blob([`# ${selectedProjectModal.title}\n\n**Tool:** ${selectedProjectModal.toolType}\n**Date:** ${selectedProjectModal.createdAt}\n**Prompt:** ${selectedProjectModal.prompt}\n\n---\n\n${selectedProjectModal.result}`], { type: "text/markdown" });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement("a");
+                  a.href = url;
+                  a.download = `${selectedProjectModal.title.replace(/[^a-z0-9]/gi, '_')}.md`;
+                  a.click();
+                }}
+                className="px-3.5 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-bold text-xs flex items-center gap-1.5"
+              >
+                <Download className="w-3.5 h-3.5 text-blue-500" />
+                <span>Export .MD</span>
+              </button>
+
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(selectedProjectModal.result);
@@ -276,6 +292,9 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Floating AI Chat Assistant */}
+      <AIAssistantWidget />
 
       {/* Auth Modal */}
       <AuthModal

@@ -1,0 +1,22 @@
+{
+  "short_name": "TubeGenius",
+  "name": "TubeGenius AI - YouTube Creator Studio",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=192&h=192&fit=crop&crop=faces",
+      "type": "image/jpeg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=512&h=512&fit=crop&crop=faces",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#090d16",
+  "theme_color": "#dc2626",
+  "display": "standalone",
+  "orientation": "portrait",
+  "description": "AI-powered YouTube Creator Toolkit for Scripts, Titles, SEO, Thumbnails, and Scheduling."
+}
