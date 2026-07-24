@@ -1,0 +1,6 @@
+{
+  "name": "TubeGenius AI",
+  "description": "Complete AI YouTube Creator Toolkit for video ideas, scriptwriting, YouTube SEO, thumbnail concepts, content scheduling, and channel growth.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
